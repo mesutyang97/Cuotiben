@@ -55,7 +55,7 @@ ROOT_URLCONF = 'studygod.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/Users/ryancheng/Desktop/HackMerced/Cuotiben/studygod/studygod/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -113,10 +113,15 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
+"""
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static/"),
+]
+"""
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.
+STATIC_ROOT = '/Users/ryancheng/Desktop/HackMerced/Cuotiben/studygod/studygod/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/Users/ryancheng/Desktop/HackMerced/Cuotiben/studygod/'

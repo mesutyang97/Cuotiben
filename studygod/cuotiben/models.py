@@ -25,6 +25,7 @@ class Problem(models.Model):
 	category = models.CharField(max_length = 30)
 	course = models.CharField(max_length = 20)
 	school = models.CharField(max_length = 20)
+	source_type = models.CharField(max_length = 20, null =True)
 	upload_time = models.DateTimeField()
 	year = models.IntegerField()
 	study_groups = models.ManyToManyField(StudyGroup)

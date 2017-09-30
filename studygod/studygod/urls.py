@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 import cuotiben.views as views
 from django.contrib import admin
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index/', views.index, name='index'),
     url(r'^public/', views.public, name='public'),
-    #url(r'^upload/', views.upload, name='upload'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^problem/', views.problems, name='problem'),
+    url(r'^upload/', views.upload, name='upload'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
