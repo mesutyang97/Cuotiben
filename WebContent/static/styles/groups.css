@@ -301,8 +301,8 @@ a:visited, a:link {
 
 .item img {
   border: 1px solid #FFFFFF;
-  height: 80px;
-  width:  80px;
+  height: 100px;
+  width:  100px;
 }
 
 .item > div:first-of-type {
@@ -320,6 +320,18 @@ a:visited, a:link {
 .item-name:hover {
   text-decoration: underline;
 }
+
+
+.item-category {
+  color:           #008080;
+  font-weight:     400;
+  text-decoration: none;
+}
+
+.item-category:hover {
+}
+
+
 
 .item-address {
   line-height:   20px;
