@@ -28,5 +28,34 @@ Bonus machine learning features:
 predict score
 suggest tags by looking at questions 
 
+Dashboard:
+- uploads button
+
+Uploading problems page:
+Receive:
+- current tags of the user
+- groups user is in 
+Send to backend:
+- problem and solution (could be in the form of image or plain text)
+- title 
+- comments 
+- tags
+- (optional) description 
+- sharing option (public, private, if community: group-name)
+
+View problems page:
+- ordered squence of problems from filtered results 
+- all information sent to backend earlier about each problem 
+
+Community page:
+Receive:
+- list of groups user is in with link to group pages
+
+Group page:
+- similar to personal problem page but with only group's problems
+- add user button 
+- remove self from group 
+- link to upload problems page
+
 
 
