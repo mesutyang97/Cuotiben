@@ -126,24 +126,62 @@ h4 {
 #wrapper {
   color: black;
   height: 100%;
-  margin-left: 100px;
-  margin-top: 100px;
-  width: 100%;
+  margin-top: 5%;
+  width: 92%;
+  padding-left: 7%;
+
 
 }
 
-.input {
+#input {
   float: left;
-  width: 50%;
+  width: 66.7%;
 }
 
-.select_options {
+#select_options {
   float:left;
-  margin-left: 80px;
+  height: 100%;
+  margin-left: 5%;
+  width: 28.3%;
 }
 
+#select_options h5 {
+  font-size: 15px;
+}
+
+
+#selectClass, #selectTopic, #sharing {
+  float: left;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 10px;
+}
+
+#topicform input[type=submit], #classform input[type=submit] {
+  font-size: 12px;
+  height: 20px;
+}
+
+
+#topicform, #classform {
+  float: left;
+  font-size: 15px;
+
+}
+
+#topicform input[type=text], #classform input[type=text]{
+  outline: none;
+  border: none;
+  border-bottom: 0.5px solid #ccc;
+
+}
+
+.textform {
+  font-size: 15px;
+}
 
 #title {
+  font-size: 15px;
   width: 300px;
   height: 25px;
 }
@@ -164,13 +202,13 @@ h4 {
 
 
 
-button {
+#selectClass button, #selectTopic button {
   background-color: grey;
   border: none;
   border-radius: 4px;
   color: white;
   display: inline-block;
-  float: right;
+  float: left;
   font-size: 12px;
   height: 25px;
   margin-right: 5px;
@@ -178,6 +216,47 @@ button {
   text-decoration: none;
   padding: 3px;
   outline: none;
+}
+
+#shareform {
+  font-size: 14px;
+}
+
+#sharing input[type=radio] {
+  display: inline-block;
+  font-size: 15px;
+  height: 20px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+#group button {
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 5px;
+  outline: none
+}
+
+#submit {
+  background-color: grey;
+  border: none;
+  border-radius: 4px;
+  bottom: -70px;
+  color: white;
+  display: inline-block;
+  float: right;
+  font-size: 14px;
+  height: 50px;
+  right: 15%;
+
+
+  text-decoration: none;
+  padding: 3px;
+  position: absolute;
+  outline: none;
+  width: 120px;
+
 }
 
 
@@ -194,11 +273,6 @@ button {
   right: 0;
   position:   absolute;
 
-}
-
-#submit {
-  bottom: 0;
-  position: absolute;
 }
 
 
