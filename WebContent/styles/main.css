@@ -76,6 +76,13 @@ a:visited, a:link {
   text-decoration: none;
 }
 
+.top-right-nav a {
+  color:           #F9F9F9;
+  font-weight:     400;
+  margin-right:     20px;
+  text-decoration: none;
+}
+
 
 /**
  * main container
