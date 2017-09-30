@@ -76,6 +76,13 @@ a:visited, a:link {
   text-decoration: none;
 }
 
+.top-right-nav a {
+  color:           #F9F9F9;
+  font-weight:     400;
+  margin-right:     20px;
+  text-decoration: none;
+}
+
 
 /**
  * main container
@@ -118,6 +125,8 @@ a:visited, a:link {
  * main section
  */
 .main-section {
+  margin-left:  50px;
+  margin-right:  50px;
   background: #F3BB43;
 }
 
@@ -254,7 +263,7 @@ a:visited, a:link {
  */
 #item-list {
   background:  #F2EBD9;
-  color:       #624630;
+  color:       #F0F0F0;
   display:     none;
   list-style:  none;
   margin-left: 180px;
@@ -273,7 +282,7 @@ a:visited, a:link {
  */
 .item {
   align-items:   center;
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 1px solid #F9F9F9;
 
   display:       flex;
   margin:        10px;
@@ -303,7 +312,7 @@ a:visited, a:link {
 }
 
 .item-name {
-  color:           #624630;
+  color:           #F9F9F9;
   font-weight:     400;
   text-decoration: none;
 }
