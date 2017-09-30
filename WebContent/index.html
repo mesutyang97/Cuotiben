@@ -146,28 +146,77 @@ xmlhttp.send("x=" + dbParam);
     <h3>Problems</h3>
     <ul>
       <li>
-        <a href="#">Fall 2017 Q3</a>
+        <a data-toggle = "modal" href="#myModal">Fall 2017 Q3</a>
+        <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
       </li>
       <li>
-        <a href="#">Markov Chain HW CS70</a>
+        <a data-toggle = "modal" href="#">Markov Chain HW CS70</a>
       </li>
       <li>
-        <a href="#">Dis problem on probability</a>
+        <a data-toggle = "modal" href="#">Dis problem on probability</a>
       </li>
       <li>
-        <a href="#">Spring 2015 Q1</a>
+        <a data-toggle = "modal" href="#">Spring 2015 Q1</a>
       </li>
       <li>
-        <a href="#">HW 2 Q1</a>
+        <a data-toggle = "modal" href="#">HW 2 Q1</a>
       </li>
       <li>
-        <a href="#">Q on expectation</a>
+        <a data-toggle = "modal" href="#">Q on expectation</a>
       </li>
     </ul>
 
 
   </div>
 </div>
+
+  <!-- Modal -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id = "title">Fall 2017 Q3</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some texe modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" style="float: left;"><span class="glyphicon">
+          </span> Prev</button>
+          <button type="submit" class="btn btn-primary"><span class="glyphicon">
+          </span> Next</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+  
+
+
+
+
 
 <!--
 <div id="footer">
@@ -191,6 +240,15 @@ xmlhttp.send("x=" + dbParam);
 </div>
 
 -->
+
+
+
+  <!-- Trigger the modal with a button -->
+  
+
+
+
+
 
   <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
   <!--<a href="https://icons8.com">Icon pack by Icons8</a> -->

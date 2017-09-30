@@ -55,110 +55,45 @@
 	  </div>
     -->
     <div id="uploadProb">
-      <a href="uploadproblem.html" id="uploadButton">Upload a Problem</a>
+      <a href="newGroup.html" id="newGroupButton">Create a Group</a>
     </div>
 
 
-    <div id="problemContainer">>
-      <ul id="group-list">
+    <div id="groupContainer">
+      <ul id="item-list">
         <h3>My Groups</h3>
           <li class="item">
             <img alt="item image" src="https://inst.eecs.berkeley.edu/~cs170/fa16/bookcover.jpg" />
             <div>
               <a class="item-name" href="#">The CS170 Group</a>
               <p class="item-category">Computer Science</p>
+            
             </div>
-            <p class="item-address">
-            <a href="#">2 New Problems</a></p>
+            <p class="item-notification"> <a href="#">2 New</a></p>
+            
+            <p class="item-upload"><a href="uploadproblem.html">Upload to group</a></p>
 
             <div class="fav-link">
               <i class="fa fa-heart"></i>
-              <a href="uploadproblem.html" id="uploadButton">Upload a Problem</a>
+            </div>
+          </li>
+          <li class="item">
+            <img alt="item image" src="http://www.cs186berkeley.net/_/rsrc/1421732920731/config/customLogo.gif?revision=1" />
+            <div>
+              <a class="item-name" href="#">The CS186 Squad</a>
+              <p class="item-category">Computer Science</p>
+            
+            </div>
+            <p class="item-notification"> <a href="#"> </a></p>
+            
+            <p class="item-upload"><a href="uploadproblem.html">Upload to group</a></p>
+
+            <div class="fav-link">
+              <i class="fa fa-heart"></i>
             </div>
           </li>
       </ul>
     </div>
-  </div>
-
-  <div id="filter">
-      <h2>Filter</h2>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="classFilter">
-          <h4 class="panel-title"><a role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseClass" href="#collapseClass" class="trigger collapsed">
-            Class
-          </a>
-        </h4>
-        </div>
-        <div class="panel-body" id="collapseClass" role="tabpanel" aria-labelledby="classFilter">
-          <form id="classForm" action="">
-            <input type="checkbox" name="###category" value="###"> CS 170<br> <!--set indent in css -->
-            <input type="checkbox" name="###category" value="###"> EE 126<br>
-          </form>
-
-          <script>
-var obj, dbParam, xmlhttp, myObj, x, txt = "";
-obj = { "table":"customers", "limit":20 };
-dbParam = JSON.stringify(obj);
-xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        myObj = JSON.parse(this.responseText);
-        txt += "<input type=\"checkbox\" "
-        for (x in myObj) {
-            txt += "name=\"" + myObj[x].name + "\">"
-            txt +=  myObj[x].name;
-        }
-        txt += "<br>"
-        document.getElementById("classForm").innerHTML = txt;
-    }
-};
-/*
-xmlhttp.open("POST", "json_demo_db_post.php", true);
-xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xmlhttp.send("x=" + dbParam);
-*/
-
-</script>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="typeFilter">
-          <h4 class="panel-title"><a  role="button" data-toggle="collapse" href="#collapseType" aria-expanded="true" aria-controls="collapseType"  class="trigger collapsed">
-            Type
-          </a>
-        </h4>
-        </div>
-        <div class="panel-body" id="collapseType" role="tabpanel" aria-labelledby="typeFilter">
-          <form action="">
-            <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
-            <input type="checkbox" name="###category" value="###"> Homework<br>
-          </form>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="topicFilter">
-          <h4 class="panel-title"><a role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTopic" href="#collapseTopic" class="trigger collapsed">
-            Topic
-          </a>
-        </h4>
-        </div>
-        <div class="panel-body" id="collapseTopic" role="tabpanel" aria-labelledby="topicFilter">
-          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
-          <input type="checkbox" name="###category" value="###"> Homework<br>
-          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
-          <input type="checkbox" name="###category" value="###"> Homework<br>
-          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
-          <input type="checkbox" name="###category" value="###"> Homework<br>
-          <input type="checkbox" name="###category" value="###"> Homework<br>
-          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
-          <input type="checkbox" name="###category" value="###"> Homework<br>
-          <input type="checkbox" name="###category" value="###"> Homework<br>
-          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
-          <input type="checkbox" name="###category" value="###"> Homework<br>
-        </div>
-      </div>
   </div>
 
   <div id="wrapper">

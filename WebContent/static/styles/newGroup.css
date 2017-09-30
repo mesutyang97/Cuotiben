@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+  margin:     0;
+  padding:    0;
+}
+
+body {
+  background:  white;/*#434343;*/
+  color:       white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size:   0.9em;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black
+}
+
+a:hover, a:active  {
+  text-decoration: none;
+
+}
+
+a:visited, a:link {
+  text-decoration: none;
+  color: black;
+
+}
+/**
+ * top header
+ */
+.top-header {
+  align-items: center;
+  background:  #434343;/*#DF574B;*/
+  box-shadow:  0px 2px 10px #333333;
+  display:     flex;
+  font-size: 14px;
+  height:      60px;
+  position:    fixed;
+  top:         0;
+  width:       100%;
+  z-index:     1;
+}
+
+#avatar {
+  display: none;
+}
+
+.avatar {
+  background:    #FFFFFF;
+  border-radius: 50%;
+  color:         #333C4D;
+  height:        40px;
+  margin-right:  20px;
+  padding-left:  9px;
+  padding-top:   5px;
+  width:         40px;
+}
+
+/**
+ * top navigation
+ */
+.top-nav {
+  flex: 1;
+}
+
+.top-nav a {
+  color:           #F9F9F9;
+  font-weight:     400;
+  margin-left:     20px;
+  text-decoration: none;
+}
+
+.top-right-nav a {
+  color:           #F9F9F9;
+  font-weight:     400;
+  margin-right:     20px;
+  text-decoration: none;
+}
+
+
+/**
+ * main container
+ */
+.container {
+  margin:    60px auto;
+  width: 100%;
+  min-width: 600px;
+  height: 100px;
+
+}
+
+
+/**
+ * main header
+ */
+
+#header {
+
+  height: 10vh;
+  width: 150vh;
+
+}
+
+
+h2 {
+  color: black;
+  float: left;
+  font-size: 25px;
+  font-weight: bold;
+
+}
+
+h4 {
+
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#wrapper {
+  color: black;
+  height: 100%;
+  margin-left: 100px;
+  margin-top: 100px;
+  width: 100%;
+
+}
+
+.input {
+  float: left;
+  width: 50%;
+}
+
+.select_options {
+  float:left;
+  margin-left: 80px;
+}
+
+
+#title {
+  width: 300px;
+  height: 25px;
+}
+
+.textform {
+  width: 80%;
+  font-size: 15px;
+
+}
+
+
+.textform-comment {
+  width: 80%;
+  font-size: 15px;
+
+}
+
+.file {
+
+}
+
+
+#title, .textform  {
+  outline: none;
+}
+
+
+
+button {
+  background-color: #008080;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  width: 120px;
+  margin-right: 5px;
+  margin-top: 5px;
+  text-decoration: none;
+  padding: 3px;
+  outline: none;
+}
+
+
+
+/**
+ * footer section
+ */
+#footer {
+  background: #434343;
+  bottom: 0;
+  left: 0;
+  font-size:  0.8em;
+  height:     200px;
+  right: 0;
+  position:   absolute;
+
+}
+
+#submit {
+  bottom: 0;
+  font-style: 20px;
+}
+
+
+
+#footer p {
+  text-align: center;
+}
+
+#footer p.title {
+  font-size: 1.2em;
+  padding:   15px;
+}
+
+#footer ul {
+  align-items: center;
+  display:     flex;
+  padding:     20px;
+}
+
+#footer ul li {
+  flex: 1;
+}
