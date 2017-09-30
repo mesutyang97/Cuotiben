@@ -12,13 +12,14 @@ class User(models.Model):
 	email = models.CharField(max_length = 30)
 	username = models.CharField(max_length = 20)
 	pwd = models.CharField(max_length = 30)
-	study_group = models.ManyToManyField(StudyGroup)
+	study_groups = models.ManyToManyField(StudyGroup)
 
 	def __str__(self):
 		return self.name
 
 class Problem(models.Model):
-	number = models.IntegerField()
+	number = models.ImageField(upload_to = 'problems')
+	solution_number = models.ImageField(upload_to = 'solutions')
 	people = models.ManyToManyField(User)
 	name = models.CharField(max_length = 20)
 	category = models.CharField(max_length = 30)
@@ -26,11 +27,8 @@ class Problem(models.Model):
 	school = models.CharField(max_length = 20)
 	upload_time = models.DateTimeField()
 	year = models.IntegerField()
-	study_group = models.ManyToManyField(StudyGroup)
+	study_groups = models.ManyToManyField(StudyGroup)
 	owner = models.IntegerField()
-	solution_number = models.IntegerField()
 
 	def __str__(self):
 		return self.name
-
-

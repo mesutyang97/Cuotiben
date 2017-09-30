@@ -14,8 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+import cuotiben.views as views
 from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^index/', views.index, name='index'),
+    url(r'^public/', views.public, name='public'),
+    #url(r'^upload/', views.upload, name='upload'),
 ]
