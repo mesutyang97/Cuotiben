@@ -6,6 +6,9 @@
   <meta name="author" content="Your Name">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Item Recommendation Final</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles/main.css">
@@ -14,6 +17,7 @@
   <header class="top-header">
     <nav class="top-nav">
       <a href="#">Problems</a>
+      <a href="#">Your Groups</a>
       <a href="#">Community</a>
       <a href="#">Recommended</a>
       <a href="#">About</a>
@@ -24,10 +28,7 @@
     <i id="avatar" class="avatar fa fa-user fa-2x"></i>
   </header>
 
-  <div class="filter">
-      <h2>Filter</h2>
-      
-  </div>
+
 
   <div class="container">
     <header>
@@ -47,65 +48,142 @@
 	    <p id="login-error"></p>
 	  </div>
     -->
+    <div id="uploadProb">
+      <a href="uploadproblem.html" id="uploadButton">Upload Problem</a>
+    </div>
 
-      <aside id="item-nav">
-        <div class="nav-icon">
-          <i class="fa fa-sitemap fa-2x"></i>
+
+  <div id="filter">
+      <h2>Filter</h2>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="classFilter">
+          <h4 class="panel-title"><a role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseClass" href="#collapseClass" class="trigger collapsed">
+            Class
+          </a>
+        </h4>
         </div>
-        <nav class="main-nav">
-          <a href="#" id="nearby-btn" class="main-nav-btn active">
-            <i class="fa fa-map-marker"></i> Nearby
-          </a>
-          <a href="#" id="fav-btn" class="main-nav-btn">
-            <i class="fa fa-heart"></i> My Favorites
-          </a>
-          <a href="#" id="recommend-btn" class="main-nav-btn">
-            <i class="fa fa-thumbs-up"></i> Recommendation
-          </a>
-        </nav>
-      </aside>
+        <div class="panel-body" id="collapseClass" role="tabpanel" aria-labelledby="classFilter">
+          <form id="classForm" action="">
+            <input type="checkbox" name="###category" value="###"> CS 170<br> <!--set indent in css -->
+            <input type="checkbox" name="###category" value="###"> EE 126<br>
+          </form>
 
-      <ul id="item-list">
-        <li class="item">
-          <img alt="item image" src="https://s3-media3.fl.yelpcdn.com/bphoto/EmBj4qlyQaGd9Q4oXEhEeQ/ms.jpg" />
-          <div>
-            <a class="item-name" href="#">Item</a>
-            <p class="item-category">Vegetarian</p>
-            <div class="stars">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-          </div>
-          <p class="item-address">699 Calderon Ave<br/>Mountain View<br/> CA</p>
-          <div class="fav-link">
-            <i class="fa fa-heart"></i>
-          </div>
-        </li>
-      </ul>
-    </section>
+          <script>
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+obj = { "table":"customers", "limit":20 };
+dbParam = JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        txt += "<input type=\"checkbox\" "
+        for (x in myObj) {
+            txt += "name=\"" + myObj[x].name + "\">"
+            txt +=  myObj[x].name;
+        }
+        txt += "<br>"
+        document.getElementById("classForm").innerHTML = txt;
+    }
+};
+xmlhttp.open("POST", "json_demo_db_post.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
+
+</script>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="typeFilter">
+          <h4 class="panel-title"><a  role="button" data-toggle="collapse" href="#collapseType" aria-expanded="true" aria-controls="collapseType"  class="trigger collapsed">
+            Type
+          </a>
+        </h4>
+        </div>
+        <div class="panel-body" id="collapseType" role="tabpanel" aria-labelledby="typeFilter">
+          <form action="">
+            <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
+            <input type="checkbox" name="###category" value="###"> Homework<br>
+          </form>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="topicFilter">
+          <h4 class="panel-title"><a role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTopic" href="#collapseTopic" class="trigger collapsed">
+            Topic
+          </a>
+        </h4>
+        </div>
+        <div class="panel-body" id="collapseTopic" role="tabpanel" aria-labelledby="topicFilter">
+          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
+          <input type="checkbox" name="###category" value="###"> Homework<br>
+          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
+          <input type="checkbox" name="###category" value="###"> Homework<br>
+          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
+          <input type="checkbox" name="###category" value="###"> Homework<br>
+          <input type="checkbox" name="###category" value="###"> Homework<br>
+          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
+          <input type="checkbox" name="###category" value="###"> Homework<br>
+          <input type="checkbox" name="###category" value="###"> Homework<br>
+          <input type="checkbox" name="###category" value="###"> Midterm<br> <!--set indent in css -->
+          <input type="checkbox" name="###category" value="###"> Homework<br>
+        </div>
+      </div>
   </div>
 
-  <footer>
-    <p class="title">What We Do</p>
-    <p>"Help you become the best version of yourself."</p>
+  <div id="wrapper">
+
+  <div id="problemContainer">
+    <h3>Problems</h3>
     <ul>
       <li>
-        <p><i class="fa fa-map-o fa-2x"></i></p>
-        <p>Berkeley, CA</p>
+        <a href="#">Fall 2017 Q3</a>
       </li>
       <li>
-        <p><i class="fa fa-envelope-o fa-2x"></i></p>
-        <p>info@cuotiben.com</p>
+        <a href="#">Markov Chain HW CS70</a>
       </li>
       <li>
-        <p><i class="fa fa-phone fa-2x"></i></p>
-        <p>+1 000 000 0000</p>
+        <a href="#">Dis problem on probability</a>
+      </li>
+      <li>
+        <a href="#">Spring 2015 Q1</a>
+      </li>
+      <li>
+        <a href="#">HW 2 Q1</a>
+      </li>
+      <li>
+        <a href="#">Q on expectation</a>
       </li>
     </ul>
-  </footer>
+
+
+  </div>
+</div>
+
+<!--
+<div id="footer">
+  <p class="title">What We Do</p>
+  <p>"Help you become the best version of yourself."</p>
+  <ul>
+    <li>
+      <p><i class="fa fa-map-o fa-2x"></i></p>
+      <p>Berkeley, CA</p>
+    </li>
+    <li>
+      <p><i class="fa fa-envelope-o fa-2x"></i></p>
+      <p>info@cuotiben.com</p>
+    </li>
+    <li>
+      <p><i class="fa fa-phone fa-2x"></i></p>
+      <p>+1 000 000 0000</p>
+    </li>
+  </ul>
+</div>
+
+-->
 
   <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
-  <script src="scripts/main.js"></script>
+  <!--<script src="scripts/main.js"></script> -->
 </body>
 </html>

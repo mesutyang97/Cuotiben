@@ -5,7 +5,7 @@
 }
 
 body {
-  background:  #434343;
+  background:  white;/*#434343;*/
   color:       white;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
@@ -16,14 +16,30 @@ ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: black
+}
+
+a:hover, a:active  {
+  text-decoration: none;
+
+}
+
+a:visited, a:link {
+  text-decoration: none;
+  color: black;
+
+}
 /**
  * top header
  */
 .top-header {
   align-items: center;
-  background:  #DF574B;
+  background:  #434343;/*#DF574B;*/
   box-shadow:  0px 2px 10px #333333;
   display:     flex;
+  font-size: 14px;
   height:      60px;
   position:    fixed;
   top:         0;
@@ -60,28 +76,18 @@ ul {
   text-decoration: none;
 }
 
-#logout-link {
-  color:           #F9F9F9;
-  display:         none;
-  font-weight:     400;
-  padding:         0 10px;
-  text-decoration: none;
-}
-
-#welcome-msg {
-  border-right:  1px solid #FFFFFF;
-  display:       none;
-  padding-right: 10px;
-}
 
 /**
  * main container
  */
 .container {
   margin:    60px auto;
-  max-width: 1000px;
+  width: 100%;
   min-width: 600px;
+  height: 100px;
+
 }
+
 
 /**
  * main header
@@ -91,7 +97,7 @@ ul {
   background:      url('http://www.texturex.com/albums/Leather-Textures/black%20leather%20texture%20large%20close%20up%20grain%20material%20dark%20fabric%20stock%20photo.jpg') no-repeat 50% 50%;
   background-size: 100%;
   display:         flex;
-  height:          250px;
+  height:          100px;
 }
 
 .container > header p {
@@ -107,47 +113,98 @@ ul {
   color: #FBAF41;
 }
 
-/**
- * login form
- */
-#login-form {
-  color: #624630;
-  margin: 0px auto;
-  overflow: auto;
-  padding: 40px;
-  width: 300px;
-}
-
-#login-form label {
-  display: block;
-}
-
-#login-form input {
-  border: none;
-  display: block;
-  margin-bottom: 10px;
-  padding: 8px;
-  width: 100%;
-}
-
-#login-form button {
-  cursor: pointer;
-  float: right;
-  padding: 8px 20px;
-  text-align: right;
-}
-
-#login-error {
-  clear: both;
-  color: #990000;
-  padding-top: 10px;
-}
 
 /**
  * main section
  */
 .main-section {
   background: #F3BB43;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+#uploadButton {
+  background-color: grey;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  display: inline-block;
+  float: right;
+  font-size: 18px;
+  height: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 10px;
+}
+
+#uploadButton {
+  outline: none;
+}
+
+#filter {
+  color: black;
+  display: block;
+  float: left;
+  height: 100%;
+  overflow-y: auto;
+  padding-left: 20px;
+  position: absolute;
+  top: 25%;
+  width: 20%;
+
+}
+
+#filter h2 {
+  font-size: 20px;
+  padding-left: 15px;
+}
+/*#filter {
+  height: 100vh;
+  position: fixed;
+  top: 20%;
+
+}*/
+
+#problemContainer {
+  background-color: white;
+  font-size: 18px;
+  height: auto;
+  float: left;
+  padding-left: 25%;
+  width: 80%;
+}
+
+#problemContainer ul li {
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+
+
+#problemContainer h3 {
+  color: black;
+  padding-bottom: 10px;
+}
+
+#problemContainer a:hover {
+  text-decoration: none;
+  color: grey;
+}
+
+.panel-body {
+  color: black;
+}
+
+.panel-body input {
+  font-size: 24px;
+  margin: 5px;
+
 }
 
 /**
@@ -282,28 +339,32 @@ ul {
 /**
  * footer section
  */
-footer {
+#footer {
   background: #434343;
+  bottom: 0;
+  left: 0;
   font-size:  0.8em;
   height:     200px;
-  position:   relative;
+  right: 0;
+  position:   absolute;
+
 }
 
-footer p {
+#footer p {
   text-align: center;
 }
 
-footer p.title {
+#footer p.title {
   font-size: 1.2em;
   padding:   15px;
 }
 
-footer ul {
+#footer ul {
   align-items: center;
   display:     flex;
   padding:     20px;
 }
 
-footer ul li {
+#footer ul li {
   flex: 1;
 }
