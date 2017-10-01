@@ -24,5 +24,7 @@ urlpatterns = [
     url(r'^public/', views.public, name='public'),
     url(r'^problem/', views.problems, name='problem'),
     url(r'^upload/', views.upload, name='upload'),
+    url(r'^creategroup/', views.creategroup, name='creategroup'),
+    url(r'^groups/', views.groups, name='groups'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
