@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import StudyGroup, User, Problem
 from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
 import json
-from .forms import ImageUploadForm
+from .forms import ImageUploadForm, QuestionUploadForm
 from datetime import datetime
 from .utils import filter_by_category,recommend
 from django.db.models import Q
@@ -78,34 +78,37 @@ def groups(request):
 
 def upload(request):
 	if request.method == 'GET':
-		if request.GET.get('group'):
-			user = User.objects.filter(pk = user_id)
-			groups = user.study_groups.all().values('name')
-			context ={'studygroups':groups}
-			return JsonResponse(context, safe = False)
+		user_id = 1
+		user = User.objects.filter(pk = user_id)[0]
+		groups = user.study_groups.all()
+		courses = user.problem_set.values_list('course', flat = True).distinct()
+		topics = user.problem_set.values_list('category', flat = True).distinct()
+		context = {'groups':groups, 'courses':courses, 'topics':topics}
+		return render(request, 'uploadproblem.html', context)
 	if request.method == 'POST':
-		form = ImageUploadForm(request.POST, request.FILES)
-		if form.is_valid():
-			if request.POST.get('public'):
-				user_id = -1
+		form = QuestionUploadForm(request.POST, request.FILES)
+		owner = 1
+		if form.cleaned_data['access'] == 'Public': 
+			owner = -1
+		elif form.cleaned_data['access'] == 'Group': 
+			group = user.study_groups.filter('name' == form.cleaned_data['group'])[0]
+			people = group.user_set.all()
 
-			new_problem = Problem(
-				number = form.cleaned_data['image1'],
-				solution_number = form.cleaned_data['image2'],
-				people = User.objects.get(pk = user_id),
-				name = request.POST.get('name'),
-				category = request.POST.get('category'),
-				course = request.POST.get('course'),
-				school = request.POST.get('school'),
-				upload_time = datetime.now(),
-				year = request.POST.get('year'),
-				owner = user_id,
-				)
-			new_problem.save()
-			if request.POST.get('group'):
-				new_problem.study_groups.add(user.study_groups.filter('name' == group).get(0))
-		
-			return JsonResponse(json.dump({'status':200, 'responseText':'Successfully uploaded'}))
-		#public? private? study group?
-		return
+		new_problem = Problem(
+			number = form.cleaned_data['question'],
+			solution_number = form.cleaned_data['solution'],
+			# people = people,
+			# name = form.cleaned_data['name'],
+			# category = form.cleaned_data['category'],
+			# course = form.cleaned_data['course'],
+			# school = 'UC Berkeley',
+			# upload_time = datetime.now(),
+			# owner = owner,
+			)
+		new_problem.save()
+		# if form.cleaned_data['group']:
+		# 	new_problem.study_groups.add(group)
+			
+		return JsonResponse(json.dump({'status':200, 'responseText':'Successfully uploaded'}))
+	return HttpResponse(str(request.method))
 

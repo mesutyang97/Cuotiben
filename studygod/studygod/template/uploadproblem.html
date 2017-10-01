@@ -140,7 +140,7 @@ h4 {
 
 #wrapper {
   color: black;
-  height: 100%;
+  height: 200%;
   margin-top: 5%;
   width: 92%;
   padding-left: 7%;
@@ -217,7 +217,7 @@ h4 {
 
 
 
-#selectClass button, #selectTopic button {
+#selectClass button, #selectTopic button, #selectGroup button {
   background-color: grey;
   border: none;
   border-radius: 4px;
@@ -257,18 +257,15 @@ h4 {
   background-color: grey;
   border: none;
   border-radius: 4px;
-  bottom: -70px;
   color: white;
   display: inline-block;
-  float: right;
+  float: left;
   font-size: 14px;
   height: 50px;
-  right: 15%;
 
 
   text-decoration: none;
   padding: 3px;
-  position: absolute;
   outline: none;
   width: 120px;
 
@@ -311,21 +308,16 @@ h4 {
   flex: 1;
 }
 
-
-
-
 </style>
-
-
 
 <body>
   <header class="top-header">
     <nav class="top-nav">
-      <a href="index.html">Problems</a>
-      <a href="groups.html">Groups</a>
-      <a href="community.html">Community</a>
-      <a href="#">Recommended</a>
-      <a href="#">About</a>
+      <a href="../problem/">Problems</a>
+      <a href="../groups/">Groups</a>
+      <a href="../public/">Community</a>
+      <a href="../recommend/">Recommended</a>
+      <a href="../about/">About</a>
     </nav>
 
     <nav class="top-right-nav">
@@ -340,23 +332,22 @@ h4 {
   </header>
 
   <div id="wrapper">
-    <form action="#">
+    <form action="../upload/" method="post" enctype="multipart/form-data">{%csrf_token%}
       <div id="header">
         <h2>Upload Problem</h2>
       </div>
-
       
       <div id="input">
         <h4>Upload Screenshot of Question </h4>
-        <input id="question" type="file" class="file" multiple
+        <input id="question" type="file" class="file" name ="question" multiple
       data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select file for upload..." required>
         <h4>Upload Screenshot of Solution</h4>
-        <input id="solution" type="file" class="file" multiple
+        <input id="solution" type="file" class="file" name = "solution" multiple
       data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select file for upload..." required>
         <h4>Title</h4>
-        <input type="text" class="textform" id="title" required>
+        <input type="text" class="textform" name = "title" id="title" required>
         <h4>Comments</h4>
-        <textarea class="textform" rows="5" id="comment" required></textarea>
+        <textarea class="textform" rows="5" name = "comment" id="comment" required></textarea>
       </div>
 
       <div id="select_options">
@@ -364,52 +355,79 @@ h4 {
         <div id="selectClass">
           <h5>Select Class:</h5>
           <!-- get using data received-->
-          <button type="button">CS170</button>
-          <button type="button">CS61C</button>
-          <button type="button">EE126</button>
+          {%for course in courses%}
+          <button id = "{{course}}" type="button">{{course}}</button>
+          {%endfor%}
+          <input type="text" id="classinp" name="course" value="" style="display:none">
         </div>
-        <form id="classform" action="">
-          Add Class:<br>
+          <br>Add Class:</br>
           <input type="text" name="class">
           <input type="submit" value="Submit">
-        </form>
         <div id="selectTopic">
           <h5>Select Topic:</h5>
-          <button type="button">Markov</button>
-          <button type="button">Machine Learning</button>
+          {%for topic in topics%}
+          <button id = "{{topic}}" type="button">{{topic}}</button>
+          {%endfor%}
         </div>
-        <form id="topicform"action="">
-          Add Topic:<br>
+        
+          <br>Add Topic:</br>
           <input type="text" name="topic">
           <input type="submit" value="Submit">
-        </form>
         <div id="sharing">
           <h4>Access</h4>
-          <form id="shareform" action="">
           <input type="radio" name="access" value="private">Private<br>
           <input type="radio" name="access" value="public">Public<br>
-          <input type="radio" name="access" value="group">Group
-          </form>
-          <div id="group">
+          <input type="text" id="accessinp" name="access" value="" style="display:none">
+          <div id="selectGroup">
             <h5>Select Group:</h5>
-            <!-- get using data received-->
-            <button type="button">Cool group</button>
-            <button type="button">Ok group</button>
-            <button type="button">Lameyo group</button>
+            {%for group in groups%}
+            <button id = "{{group.name}}" type="button">{{group.name}}</button>
+            {%endfor%}
+            <input type="text" id="groupinp" name="group" value="" style="display:none">
           </div>
-        </div>
-
-
-        <button id="submit" type="submit">Submit</button>
+        </div>      
       </div>
+      <button id="submit" type="Submit">Submit</button>
     </form>
   </div>
 
 
 
-
-
   <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
-  <script src="scripts/main.js"></script>
+  <script>
+    $(document).ready(function() {
+    var currentClass;
+    $("#selectClass button").click(function() {
+      if (currentClass != this) {
+        $(currentClass).css("background-color", "grey");
+      }
+      var selectedClass = $(this).attr('id'); // or alert($(this).attr('id'));
+      $(this).css("background-color", "#A9A9A9");
+      currentClass = this;
+      $("#classinp").val(selectedClass);
+    });
+    var currentTopic;
+    $("#selectTopic button").click(function() {
+      if (currentTopic != this) {
+        $(currentTopic).css("background-color", "grey");
+      }
+      var selectedTopic = $(this).attr('id'); // or alert($(this).attr('id'));
+      $(this).css("background-color", "#A9A9A9");
+      currentTopic = this;
+      $("#topicinp").val(selectedTopic);
+    });
+    var currentGroup;
+    $("#selectGroup button").click(function() {
+      if (currentGroup != this) {
+        $(currentGroup).css("background-color", "grey");
+      }
+      var selectedGroup = $(this).attr('id'); // or alert($(this).attr('id'));
+      $(this).css("background-color", "#A9A9A9");
+      currentGroup = this;
+      $("#groupinp").val(selectedGroup);
+    });
+
+  });
+  </script>
 </body>
 </html>
