@@ -5,7 +5,7 @@
   <meta name="description" content="Cuotiben">
   <meta name="author" content="Your Name">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cuotiben - Problems</title>
+  <title>Cuotiben - Community</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -147,17 +147,54 @@ a:visited, a:link {
   height: 100vh;
 }
 
+#uploadProb {
+  margin-top: 20px;
+  float: right;
+  height: 50px;
+  width: 500px;
+
+}
+
+#search {
+
+  float: left;
+  height: 50px;
+  width: 250px;
+  margin-top: 10px;
+}
+
+#search input[type=text] {
+  font-size: 13px;
+  color: black;
+  text-indent: 5px;
+  height: 25px;
+  outline: none;
+  width: 150px;
+}
+
+
+#search input[type=submit] {
+  background-color: #ccc;
+  border: none;
+  border-radius: 4px;
+  color: black;
+  font-size: 12px;
+  height: 25px;
+  outline: none;
+  width: 75px;
+}
+
 #uploadButton {
   background-color: grey;
   border: none;
   border-radius: 4px;
   color: white;
   display: inline-block;
-  float: right;
+  float: left;
   font-size: 18px;
   height: 50px;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 0px;
   text-decoration: none;
   padding: 10px;
 }
@@ -398,7 +435,7 @@ a:visited, a:link {
     <nav class="top-nav">
       <a href="index.html">Problems</a>
       <a href="groups.html">Groups</a>
-      <a href="community.html">Community</a>
+      <a href="#">Community</a>
       <a href="#">Recommended</a>
       <a href="#">About</a>
     </nav>
@@ -423,18 +460,14 @@ a:visited, a:link {
         <br /> Powered by UCBMFET
       </p>
     </header>
-    <!--
-    <section class="main-section">
-      <div id="login-form">
-      <label for="username">Username:</label>
-      <input id="username" name="username" type="text">
-      <label for="password">Password:</label>
-      <input id="password" name="password" type="password">
-      <button id="login-btn">Login</button>
-      <p id="login-error"></p>
-    </div>
-    -->
+
     <div id="uploadProb">
+      <div id="search">
+        <form action="">
+          <input type="text" name="searchfor" value="Search" onfocus="if (this.value=='Search') this.value='';">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
       <a href="uploadproblem.html" id="uploadButton">Upload a Problem</a>
     </div>
   </div>
