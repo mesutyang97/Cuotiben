@@ -471,36 +471,20 @@ a:visited, a:link {
     <div id="groupContainer">
       <ul id="item-list">
         <h3>My Groups</h3>
+        {%for study_group in study_groups%}
           <li class="item">
-            <img alt="item image" src="https://inst.eecs.berkeley.edu/~cs170/fa16/bookcover.jpg" />
+            <img alt="item image" src="{{study_group.image.url}}" alt = "Image not uploaded" />
             <div>
-              <a class="item-name" href="#">The CS170 Group</a>
-              <p class="item-category">Computer Science</p>
-            
+              <a class="item-name" href="#">{{study_group.name}}</a>
+              <p class="item-category">{{study_group.info}}</p>
             </div>
-            <p class="item-notification"> <a href="#">2 New</a></p>
-            
-            <p class="item-upload"><a href="uploadproblem.html">Upload to group</a></p>
-
-            <div class="fav-link">
-              <i class="fa fa-heart"></i>
-            </div>
-          </li>
-          <li class="item">
-            <img alt="item image" src="http://www.cs186berkeley.net/_/rsrc/1421732920731/config/customLogo.gif?revision=1" />
-            <div>
-              <a class="item-name" href="#">The CS186 Squad</a>
-              <p class="item-category">Computer Science</p>
-            
-            </div>
-            <p class="item-notification"> <a href="#"> </a></p>
-            
-            <p class="item-upload"><a href="uploadproblem.html">Upload to group</a></p>
-
-            <div class="fav-link">
-              <i class="fa fa-heart"></i>
-            </div>
-          </li>
+          <p class="item-notification"> <a href="#">2 New</a></p>
+          <p class="item-upload"><a href="uploadproblem.html">Upload to group</a></p>
+          <div class="fav-link">
+            <i class="fa fa-heart"></i>
+          </div>
+        </li>
+        {%endfor%}
       </ul>
     </div>
   </div>
