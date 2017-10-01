@@ -149,7 +149,9 @@ a:visited, a:link {
 
 #sidebar {
   float: right;
+  width: 175px;
 }
+
 
 #uploadButton {
   background-color: grey;
@@ -164,10 +166,25 @@ a:visited, a:link {
   margin-top: 10px;
   text-decoration: none;
   padding: 10px;
+  outline: none;
+  width: 100%;
 }
 
-#uploadButton {
+#addlink {
+  background-color: grey;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  display: inline-block;
+  float: right;
+  font-size: 18px;
+  height: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 10px;
   outline: none;
+  width: 100%;
 }
 
 #filter {
@@ -308,7 +325,7 @@ a:visited, a:link {
       <a href="uploadproblem.html" id="uploadButton">Upload a Problem</a>
     </div>
     <div id="addmember">
-      <a href="#" id="addmember">Add Member</a>
+      <a href="#" id="addlink">Add Member</a>
       <form id="addform" action="">
         <input type="text" name="memberid" value="Enter Member Id" onfocus="if (this.value=='Enter Member Id') this.value='';">
         <input type="submit" value="Submit">
