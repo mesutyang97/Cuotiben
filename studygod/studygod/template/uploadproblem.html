@@ -11,8 +11,313 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../static/styles/uploadprob.css">
 </head>
+<style>
+* {
+  box-sizing: border-box;
+  margin:     0;
+  padding:    0;
+}
+
+body {
+  background:  white;/*#434343;*/
+  color:       white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size:   0.9em;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black
+}
+
+a:hover, a:active  {
+  text-decoration: none;
+
+}
+
+a:visited, a:link {
+  text-decoration: none;
+  color: black;
+
+}
+/**
+ * top header
+ */
+.top-header {
+  align-items: center;
+  background:  #434343;/*#DF574B;*/
+  box-shadow:  0px 2px 10px #333333;
+  display:     flex;
+  font-size: 14px;
+  height:      60px;
+  position:    fixed;
+  top:         0;
+  width:       100%;
+  z-index:     1;
+}
+
+#avatar {
+  display: none;
+}
+
+.avatar {
+  background:    #FFFFFF;
+  border-radius: 50%;
+  color:         #333C4D;
+  height:        40px;
+  margin-right:  20px;
+  padding-left:  9px;
+  padding-top:   5px;
+  width:         40px;
+}
+
+/**
+ * top navigation
+ */
+.top-nav {
+  flex: 1;
+}
+
+.top-nav a {
+  color:           #F9F9F9;
+  font-weight:     400;
+  margin-left:     20px;
+  text-decoration: none;
+}
+
+.top-right-nav a {
+  color:           #F9F9F9;
+  font-weight:     400;
+  margin-right:     20px;
+  text-decoration: none;
+}
+
+
+/**
+ * main container
+ */
+.container {
+  margin:    60px auto;
+  width: 100%;
+  min-width: 600px;
+  height: 100px;
+
+}
+
+
+/**
+ * main header
+ */
+
+#header {
+
+  height: 10vh;
+  width: 150vh;
+
+}
+
+
+h2 {
+  color: black;
+  float: left;
+  font-size: 25px;
+  font-weight: bold;
+
+}
+
+h4 {
+
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#wrapper {
+  color: black;
+  height: 100%;
+  margin-top: 5%;
+  width: 92%;
+  padding-left: 7%;
+
+
+}
+
+#input {
+  float: left;
+  width: 66.7%;
+}
+
+#select_options {
+  float:left;
+  height: 100%;
+  margin-left: 5%;
+  width: 28.3%;
+}
+
+#select_options h5 {
+  font-size: 15px;
+}
+
+
+#selectClass, #selectTopic, #sharing {
+  float: left;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 10px;
+}
+
+#topicform input[type=submit], #classform input[type=submit] {
+  font-size: 12px;
+  height: 20px;
+}
+
+
+#topicform, #classform {
+  float: left;
+  font-size: 15px;
+
+}
+
+#topicform input[type=text], #classform input[type=text]{
+  outline: none;
+  border: none;
+  border-bottom: 0.5px solid #ccc;
+
+}
+
+.textform {
+  font-size: 15px;
+}
+
+#title {
+  font-size: 15px;
+  width: 300px;
+  height: 25px;
+}
+
+.textform {
+  width: 100%;
+
+}
+
+.file {
+
+}
+
+
+#title, .textform  {
+  outline: none;
+}
+
+
+
+#selectClass button, #selectTopic button {
+  background-color: grey;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  height: 25px;
+  margin-right: 5px;
+  margin-top: 5px;
+  text-decoration: none;
+  padding: 3px;
+  outline: none;
+}
+
+#shareform {
+  font-size: 14px;
+}
+
+#sharing input[type=radio] {
+  display: inline-block;
+  font-size: 15px;
+  height: 20px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+#group button {
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 5px;
+  outline: none
+}
+
+#submit {
+  background-color: grey;
+  border: none;
+  border-radius: 4px;
+  bottom: -70px;
+  color: white;
+  display: inline-block;
+  float: right;
+  font-size: 14px;
+  height: 50px;
+  right: 15%;
+
+
+  text-decoration: none;
+  padding: 3px;
+  position: absolute;
+  outline: none;
+  width: 120px;
+
+}
+
+
+
+/**
+ * footer section
+ */
+#footer {
+  background: #434343;
+  bottom: 0;
+  left: 0;
+  font-size:  0.8em;
+  height:     200px;
+  right: 0;
+  position:   absolute;
+
+}
+
+
+
+#footer p {
+  text-align: center;
+}
+
+#footer p.title {
+  font-size: 1.2em;
+  padding:   15px;
+}
+
+#footer ul {
+  align-items: center;
+  display:     flex;
+  padding:     20px;
+}
+
+#footer ul li {
+  flex: 1;
+}
+
+
+
+
+</style>
+
+
+
 <body>
   <header class="top-header">
     <nav class="top-nav">
@@ -39,7 +344,7 @@
       <h2>Upload Problem</h2>
     </div>
 
-      <div class="input">
+      <div id="input">
         <h4>Upload Screenshot of Question </h4>
         <input id="question" type="file" class="file" multiple
       data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select file for upload...">
@@ -55,29 +360,57 @@
         <h4>Comments</h4>
         <textarea class="textform" rows="5" id="comment"></textarea>
       </div>
-      <div class="select_options">
+      <div id="select_options">
         <h4>Tag</h4>
-        <h5>Class</h5>
-        <!-- get using data received-->
-        <button type="button">CS170</button>
-        <button type="button">CS61C</button>
-        <button type="button">EE126</button>
-        <h5>Type</h5>
-        <button type="button">Midterm</button>
-        <button type="button">Final</button>
-        <button type="button">HW</button>
-        <h5>Topic</h5>
+        <div id="selectClass">
+          <h5>Select Class:</h5>
+          <!-- get using data received-->
+          <button type="button">CS170</button>
+          <button type="button">CS61C</button>
+          <button type="button">EE126</button>
+        </div>
+        <form id="classform" action="">
+          Add Class:<br>
+          <input type="text" name="class">
+          <input type="submit" value="Submit">
+        </form>
+        <div id="selectTopic">
+        <h5>Select Topic:</h5>
         <button type="button">Markov</button>
         <button type="button">Machine Learning</button>
       </div>
+        <form id="topicform"action="">
+          Add Topic:<br>
+          <input type="text" name="topic">
+          <input type="submit" value="Submit">
+        </form>
+        <div id="sharing">
+          <h4>Access</h4>
+          <form id="shareform" action="">
+          <input type="radio" name="access" value="private">Private<br>
+          <input type="radio" name="access" value="public">Public<br>
+          <input type="radio" name="access" value="group">Group
+          </form>
+          <div id="group">
+            <h5>Select Group:</h5>
+            <!-- get using data received-->
+            <button type="button">Cool group</button>
+            <button type="button">Ok group</button>
+            <button type="button">Lameyo group</button>
+          </div>
+        </div>
+
+
+        <button id="submit" type="button">Submit</button>
+      </div>
 
   </div>
-  <button id="submit" type="button">Submit</button>
+
 
 
 
 
   <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
-  <!--<script src="scripts/main.js"></script> -->
+  <script src="scripts/main.js"></script>
 </body>
 </html>
