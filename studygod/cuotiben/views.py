@@ -4,14 +4,17 @@ from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
 import json
 from .forms import ImageUploadForm
 from datetime import datetime
+from .utils import filter_by_category,recommend
+from django.db.models import Q
 #temprary user id
 user_id = 1
 
 def index(request):
 	if request.method == 'GET':
-		if request.GET.get('log out'):
-			pass
-		
+		if request.GET.get('log in'):
+			return
+	if request.POST.post == ('log out'):
+		return
 	else:
 		return HttpResponseBadRequest
 
@@ -41,10 +44,37 @@ def public(request):
 			cat = request.GET.get('category')
 			all_categories = Problem.objects.values_list('category').distinct(flat = True)
 			# call least distance algorithm
-			result = helper(all_categories, cat, 10)
+			result = filter_by_category(cat, list(all_categories), 30)
+			
+			my_filter_qs = Q()
+			for r in result:
+				my_filter_qs = my_filter_qs | Q(category=r)
+			problems = Problem.objects.filter(my_filter_qs, owner = -1)
+		else:
+			problems = Problem.objects.filter(owner = -1)
+		context = {'prob': problems}
+		return render(request, 'index.html', context)
 
-			#run algorithm to return the top recommendations
-	return 
+def creategroup(request):
+	if request.method == 'GET':
+		return render(request, 'createGroups.html')
+	if request.method == 'POST':
+		form = ImageUploadForm(request.POST, request.FILES)
+		if form.is_valid():
+			new_group = StudyGroup(
+						name = form.cleaned_data['name'],
+						info = form.cleaned_data['info'],
+							)
+			new_group.picture = form.cleaned_data['image']
+			new_group.save()
+		return JsonResponse({'status':200, 'responseText': 'Success'})
+
+def groups(request):
+	if request.method == 'GET':
+		user = User.objects.filter(pk = user_id)[0]
+		groups = user.study_groups.all()
+		context = {'groups':groups}
+		return render(request, 'groups.html', context)
 
 def upload(request):
 	if request.method == 'GET':
@@ -56,11 +86,12 @@ def upload(request):
 	if request.method == 'POST':
 		form = ImageUploadForm(request.POST, request.FILES)
 		if form.is_valid():
-			group = request.POST.get('group')
+			if request.POST.get('public'):
+				user_id = -1
 
 			new_problem = Problem(
-				number = form.cleaned_data['image'],
-				#solution_number = 
+				number = form.cleaned_data['image1'],
+				solution_number = form.cleaned_data['image2'],
 				people = User.objects.get(pk = user_id),
 				name = request.POST.get('name'),
 				category = request.POST.get('category'),
@@ -68,10 +99,13 @@ def upload(request):
 				school = request.POST.get('school'),
 				upload_time = datetime.now(),
 				year = request.POST.get('year'),
-				study_groups = user.study_groups.filter('name' == group)[0],
 				owner = user_id,
 				)
+			new_problem.save()
+			if request.POST.get('group'):
+				new_problem.study_groups.add(user.study_groups.filter('name' == group).get(0))
 		
+			return JsonResponse(json.dump({'status':200, 'responseText':'Successfully uploaded'}))
 		#public? private? study group?
 		return
 

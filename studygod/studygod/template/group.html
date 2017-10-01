@@ -5,7 +5,7 @@
   <meta name="description" content="Cuotiben">
   <meta name="author" content="Your Name">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cuotiben - Groups</title>
+  <title>Cuotiben - Problems</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -139,8 +139,6 @@ a:visited, a:link {
  * main section
  */
 .main-section {
-  margin-left:  50px;
-  margin-right:  50px;
   background: #F3BB43;
 }
 
@@ -149,8 +147,12 @@ a:visited, a:link {
   height: 100vh;
 }
 
-#newGroupButton {
-  background-color: #008080;
+#sidebar {
+  float: right;
+}
+
+#uploadButton {
+  background-color: grey;
   border: none;
   border-radius: 4px;
   color: white;
@@ -164,7 +166,7 @@ a:visited, a:link {
   padding: 10px;
 }
 
-#newGroupButton {
+#uploadButton {
   outline: none;
 }
 
@@ -192,7 +194,7 @@ a:visited, a:link {
 
 }*/
 
-#groupContainer {
+#problemContainer {
   background-color: white;
   font-size: 18px;
   height: auto;
@@ -201,7 +203,7 @@ a:visited, a:link {
   width: 80%;
 }
 
-#groupContainer ul li {
+#problemContainer ul li {
   background-color: #f7f7f7;
   border-radius: 4px;
   margin-bottom: 10px;
@@ -210,12 +212,12 @@ a:visited, a:link {
 
 
 
-#groupContainer h3 {
+#problemContainer h3 {
   color: black;
   padding-bottom: 10px;
 }
 
-#groupContainer a:hover {
+#problemContainer a:hover {
   text-decoration: none;
   color: grey;
 }
@@ -230,158 +232,8 @@ a:visited, a:link {
 
 }
 
-/**
- * aside
- */
-#item-nav {
-  display: none;
-  float: left;
-  width: 180px;
-}
-
-.nav-icon {
-  color:      #624630;
-  padding:    20px;
-  text-align: center;
-}
-
-/**
- * main navigation
- */
-.main-nav-btn {
-  background:      none;
-  border-top:      1px solid #FFFFFF;
-  color:           #FFFFFF;
-  display:         block;
-  padding:         20px;
-  text-align:      left;
-  text-decoration: none;
-}
-
-.main-nav-btn:hover {
-  background: rgba(255, 255, 255, 0.8);
-  color:      #624630;
-}
-
-.main-nav-btn.active {
-  background: #F2EBD9;
-  color:      #624630;
-}
-
-.main-nav-btn i {
-  width: 20px;
-}
-
-/**
- * item list
- */
-#item-list {
-  color:       #F0F0F0;
-  list-style:  none;
-  padding:     10px;
-  margin:    30px auto;
-  width: 100%;
-  min-width: 600px;
-  height: 100%;
-}
-
-#item-list .notice {
-  font-size:  10px;
-  padding:    60px;
-  text-align: center;
-}
-
-/**
- * item
- */
-.item {
-  align-items:   center;
-  display:       flex;
-  margin-top:    40px;
-  padding:       40px;
-  transition:    background-color 100ms linear;
-}
-
-.item:last-child {
-  border: none;
-}
-
-.item:hover {
-  background: rgba(255, 255, 255, 0.8);
-  transition: background-color 100ms linear;
-}
-
-.item img {
-  border: 1px solid #FFFFFF;
-  height: 180px;
-  width:  180px;
-}
-
-.item > div:first-of-type {
-  flex:         1;
-  margin-left:  10px;
-  margin-right: 10px;
-}
-
-.item-name {
-  font-size:        30px;
-  color:           black;
-  font-weight:     400;
-  text-decoration: none;
-}
-
-.item-name:hover {
-  text-decoration: underline;
-}
 
 
-.item-category {
-  color:           #008080;
-  font-weight:     400;
-  text-decoration: none;
-}
-
-.item-category:hover {
-}
-
-
-
-.item-notification {
-  line-height:   20px;
-  padding-right: 20px;
-  text-align:    right;
-}
-
-
-.item-notification a {
-  color:          red;
-  text-align:    center;
-}
-
-
-.item-upload {
-  line-height:   20px;
-  padding-right: 20px;
-  text-align:    right;
-}
-.item-upload a {
-  color:          black;
-  text-align:    center;
-}
-
-
-
-.fav-link {
-  border-left: 1px solid #FFFFFF;
-  cursor:      pointer;
-  line-height: 60px;
-  text-align:  center;
-  width:       60px;
-}
-
-.fav-link:hover {
-  color: #F13F3F;
-}
 
 /**
  * footer section
@@ -417,20 +269,16 @@ a:visited, a:link {
 }
 
 
-
 </style>
-
-
 </head>
 <body>
   <header class="top-header">
     <nav class="top-nav">
-      <a href="../problem/">Problems</a>
-      <a href="../groups/">Groups</a>
-      <a href="../public/">Community</a>
-      <a href="../recommend/">Recommended</a>
-      <a href="../about/">About</a>
-
+      <a href="index.html">Problems</a>
+      <a href="groups.html">Groups</a>
+      <a href="community.html">Community</a>
+      <a href="#">Recommended</a>
+      <a href="#">About</a>
     </nav>
 
     <nav class="top-right-nav">
@@ -453,76 +301,116 @@ a:visited, a:link {
         <br /> Powered by UCBMFET
       </p>
     </header>
-    <!--
-    <section class="main-section">
-      <div id="login-form">
-      <label for="username">Username:</label>
-      <input id="username" name="username" type="text">
-      <label for="password">Password:</label>
-      <input id="password" name="password" type="password">
-      <button id="login-btn">Login</button>
-      <p id="login-error"></p>
-    </div>
-    -->
+  </div>
+
+  <div id="sidebar">
     <div id="uploadProb">
-      <a href="../creategroup/" id="newGroupButton">Create a Group</a>
+      <a href="uploadproblem.html" id="uploadButton">Upload a Problem</a>
     </div>
-
-    <div id="groupContainer">
-      <ul id="item-list">
-        <h3>My Groups</h3>
-        {%for group in groups%}
-
-          <li class="item">
-            <img src="{{group.picture.url}}" alt="no image"/>
-            <div>
-              <a class="item-name" href="#">{{group.name}}</a>
-              <p class="item-category">{{group.info}}</p>
-
-            </div>
-            <p class="item-notification"> <a href="#">2 New</a></p>
-
-            <p class="item-upload"><a href="uploadproblem.html">Upload to group</a></p>
-
-            <div class="fav-link">
-              <i class="fa fa-heart"></i>
-            </div>
-          </li>
-        {%endfor%}
-      </ul>
+    <div id="addmember">
+      <a href="#" id="addmember">Add Member</a>
+      <form id="addform" action="">
+        <input type="text" name="memberid" value="Enter Member Id" onfocus="if (this.value=='Enter Member Id') this.value='';">
+        <input type="submit" value="Submit">
+      </form>
     </div>
+    <div id="leave">
+      <form action="">
+        <input type="submit" value="Leave Group">
+      </form>
+    </div>
+  </div>
+
+
+
+  <div id="filter">
+      <h2>Filter</h2>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="classFilter">
+          <h4 class="panel-title"><a role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseClass" href="#collapseClass" class="trigger collapsed">
+            Class
+          </a>
+        </h4>
+        </div>
+        <div class="panel-body" id="collapseClass" role="tabpanel" aria-labelledby="classFilter">
+          <form id="classForm" action="">
+            {%for course in courses%}
+            <input type="checkbox" name="{{course}}" value="{{course}}">{{course}}<br>
+            {%endfor%}
+          </form>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="typeFilter">
+          <h4 class="panel-title"><a  role="button" data-toggle="collapse" href="#collapseType" aria-expanded="true" aria-controls="collapseType"  class="trigger collapsed">
+            Type
+          </a>
+        </h4>
+        </div>
+        <div class="panel-body" id="collapseType" role="tabpanel" aria-labelledby="typeFilter">
+          <form action="">
+            {%for type in source_types%}
+            <input type="checkbox" name="{{type}}" value="{{type}}">{{type}}<br>
+            {%endfor%}
+          </form>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="topicFilter">
+          <h4 class="panel-title"><a role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTopic" href="#collapseTopic" class="trigger collapsed">
+            Topic
+          </a>
+        </h4>
+        </div>
+        <div class="panel-body" id="collapseTopic" role="tabpanel" aria-labelledby="topicFilter">
+          {%for cat in categories%}
+            <input type="checkbox" name="{{cat}}" value="{{cat}}">{{cat}}<br>
+          {%endfor%}
+        </div>
+      </div>
   </div>
 
   <div id="wrapper">
 
+  <div id="problemContainer">
+    <h3>Problems</h3>
+    <ul>
+    {%for prob in problems %}
+      {% csrf_token %}
+    <li>{{prob.name}}</li>
+      <img type = 'image' src="{{prob.number.url}}" alt = "Image not uploaded" width="50%" />
+      <img type = 'image' src="{{prob.solution_number.url}}" alt = "Image not uploaded" width="50%" />
+    {%endfor%}
+    </ul>
+  </div>
 </div>
 
-<!--
-<div id="footer">
-  <p class="title">What We Do</p>
-  <p>"Help you become the best version of yourself."</p>
-  <ul>
-    <li>
-      <p><i class="fa fa-map-o fa-2x"></i></p>
-      <p>Berkeley, CA</p>
-    </li>
-    <li>
-      <p><i class="fa fa-envelope-o fa-2x"></i></p>
-      <p>info@cuotiben.com</p>
-    </li>
-    <li>
-      <p><i class="fa fa-phone fa-2x"></i></p>
-      <p>+1 000 000 0000</p>
-    </li>
-  </ul>
-
-</div>
-
--->
 
   <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
-  <!--<a href="https://icons8.com">Icon pack by Icons8</a> -->
+   <script>
+    var obj, dbParam, xmlhttp, myObj, x, txt = "";
+    obj = { "table":"customers", "limit":20 };
+    dbParam = JSON.stringify(obj);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myObj = JSON.parse(this.responseText);
+            txt += "<input type=\"checkbox\" "
+            for (x in myObj) {
+                txt += "name=\"" + myObj[x].name + "\">"
+                txt +=  myObj[x].name;
+            }
+            txt += "<br>"
+            document.getElementById("classForm").innerHTML = txt;
+        }
+    };
+    xmlhttp.open("POST", "json_demo_db_post.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("x=" + dbParam);
 
-  <script src="scripts/main.js"></script>
+</script>
+  <!--<a href="https://icons8.com">Icon pack by Icons8</a> -->
 </body>
 </html>

@@ -2,6 +2,8 @@ from django.db import models
 
 class StudyGroup(models.Model):
 	name = models.CharField(max_length = 30)
+	picture = models.ImageField(upload_to = 'studygroups', null = True)
+	info = models.CharField(max_length = 30, null = True)
 
 	def __str__(self):
 		return self.name
