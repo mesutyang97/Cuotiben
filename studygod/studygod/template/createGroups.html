@@ -256,7 +256,7 @@ button {
     <nav class="top-nav">
       <a href="index.html">Problems</a>
       <a href="groups.html">Groups</a>
-      <a href="#">Community</a>
+      <a href="community.html">Community</a>
       <a href="#">Recommended</a>
       <a href="#">About</a>
     </nav>
@@ -277,29 +277,51 @@ button {
       <h2>Create a Group</h2>
     </div>
 
-      <div class="input">
-        <h4>Picture for your group </h4>
-        <input id="question" type="file" class="file" multiple
-      data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select file for upload...">
-        <h4>Group Name</h4>
-        <input type="text" class="textform" id="groupName" maxlength="50">
-        <h4>Group Introduction (What class / department is this group for)</h4>
-        <input type="text" class="textform" id="groupIntro" maxlength="80">
-        <h4>Comments</h4>
-        <textarea class="textform-comment" rows="5" id="comment"></textarea>
 
-      </div>
-      <div><button id="submit" type="button">Submit</button> </div>
+      <form action="#">
+        <div class="input">
+          <h4>Avatar For Your Group (*)</h4>
+          <input id="question" type="file" class="file" multiple
+        data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select file for upload..." required>
+          <h4>Group Name (*)</h4>
+          <input type="text" class="textform" id="groupName" maxlength="40" required>
+          <h4>Group Introduction (What class / department is this group for) (*)</h4>
+          <input type="text" class="textform" id="groupIntro" maxlength="80" required>
+          <br></br>
+          <h5>Member 1:</h5>
+          <input type="text" class="textform" id="groupName" maxlength="50" required>
+        </div>
+
+        <div><button id="submit" type="submit">Submit</button>
+        </div>
+      </form> 
 
   </div>
 
 
 
-
-
-
-
   <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
+
+  <script>
+    var obj, dbParam, xmlhttp, myObj, x, txt = "";
+    obj = { "table":"customers", "limit":20 };
+    dbParam = JSON.stringify(obj);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myObj = JSON.parse(this.responseText);
+            txt += "<input type=\"checkbox\" "
+            for (x in myObj) {
+                txt += "name=\"" + myObj[x].name + "\">"
+                txt +=  myObj[x].name;
+            }
+            txt += "<br>"
+            document.getElementById("classForm").innerHTML = txt;
+        }
+    };
+  </script>
+
+
   <script src="scripts/main.js"></script>
 </body>
 </html>
